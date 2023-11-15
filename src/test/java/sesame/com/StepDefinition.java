@@ -8,25 +8,25 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StepDefinition {
     public WebDriver driver;
-
-
+    FirefoxBinary firefoxBinary;
     @Before
     public void createWebDriver() {
-	FirefoxBinary firefoxBinary = new FirefoxBinary();
+    	firefoxBinary = new FirefoxBinary();
     }
 
     @After
     public void quitWebDriver() {
-        webDriver.quit();
+        driver.quit();
     }
 
-	
 	@Given("I open google search page")
 	public void i_open_google_search_page() {
 		 firefoxBinary.addCommandLineOptions("--headless");
