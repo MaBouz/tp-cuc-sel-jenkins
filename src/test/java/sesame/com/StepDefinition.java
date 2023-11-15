@@ -15,9 +15,20 @@ import io.cucumber.java.en.When;
 public class StepDefinition {
     public WebDriver driver;
 
+
+    @Before
+    public void createWebDriver() {
+	FirefoxBinary firefoxBinary = new FirefoxBinary();
+    }
+
+    @After
+    public void quitWebDriver() {
+        webDriver.quit();
+    }
+
+	
 	@Given("I open google search page")
 	public void i_open_google_search_page() {
-		 FirefoxBinary firefoxBinary = new FirefoxBinary();
 		 firefoxBinary.addCommandLineOptions("--headless");
 		 firefoxBinary.addCommandLineOptions("--no-sandbox");
 		 System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
