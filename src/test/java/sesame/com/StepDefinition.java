@@ -23,7 +23,7 @@ public class StepDefinition {
 		 System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
 		 FirefoxOptions firefoxOptions = new FirefoxOptions();
 		 firefoxOptions.setBinary(firefoxBinary);
-		 FirefoxDriver driver = new FirefoxDriver(firefoxOptions);
+		 driver = new FirefoxDriver(firefoxOptions);
 		 driver.get("https://www.google.fr");
 	}
 	@When("I lookup the word {string}")
